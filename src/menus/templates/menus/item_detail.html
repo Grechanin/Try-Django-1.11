@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} {{object.name }} | {{ block.super }} {% endblock %}
+
+{% block content %} 
+<h1>{{ object.name }}</h1>
+<h3>Location: {{ object.restaurant }}</h3>
+{% if object.contents %}
+		<h5>Contents</h5>
+		{% for item in object.get_contents %}
+		<ul><li>{{ item }}</li></ul>
+		{% endfor %}
+		{% endif %}
+
+		{% if object.excludes %}
+		<h5>Excludes</h5>
+		{% for item in object.get_excludes %}
+		<ul><li>{{ item }}</li></ul>
+		{% endfor %}
+		{% endif %}
+<p>Create on {{object.timestamp}} {% if object.updated %} , Update {{object.updated|timesince}} ago {% endif %}</p>
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{%include "snippets/css.html" %}
+	<title>{% block title %} MuyPicky.com {% endblock %}</title>
+</head>
+<body>
+	<div class="container">
+		<h1>MuyPicky</h1>
+		{% include "snippets/nav.html" %}	
+		{% block content %} {% endblock content %}
+	</div>
+	{%include "snippets/js.html" %}
+</body>
+</html>

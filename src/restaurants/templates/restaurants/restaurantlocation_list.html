@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} My Restaurants | {{ block.super }} {% endblock %}
+
+{% block content %} 
+<h1>My Restaurants <small><a href="{% url 'restaurants:create' %}">Add</a></small></h1>
+<ul>
+{% for obj in object_list %}
+	<li><a href="{{ obj.get_absolute_url }}">{{ obj.name }}</a>  <br> {{ obj.name }} {{ obj.location }} {{ obj.category }} {{ obj.timestamp }} {{ obj.update }}</li>
+
+{% empty %}
+	<li><a href="{% url 'restaurants:create' %}">Add restaurant</a></li>
+
+{% endfor %}
+</ul> 
+
+
+{% endblock content %}
